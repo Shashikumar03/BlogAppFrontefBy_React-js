@@ -8,3 +8,11 @@ export const signUp = async (user) => {
   );
   return response.data;
 };
+export const loginUser = async (loginDetail) => {
+  const response = await axios.post(
+    "http://localhost:8080/api/v1/auth/login",
+    loginDetail
+  );
+
+  return response.data;
+};

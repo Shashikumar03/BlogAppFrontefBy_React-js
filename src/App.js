@@ -8,6 +8,9 @@ import Signup from "./pages/Signup";
 import About from "./pages/About";
 import Base from "./components/Base";
 import Services from "./pages/Services";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 //import CustomNavbar from "./components/CustomNavbar";
 //import Base from "./components/Base";
 //import CustomNavbar from "./components/CustomNavbar";
@@ -16,6 +19,7 @@ function App() {
   return (
     <>
       <Router>
+        <ToastContainer position=" center" />
         <Base />
         <Routes>
           <Route path="/" element={<Home />} />

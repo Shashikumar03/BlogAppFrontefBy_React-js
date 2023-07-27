@@ -1,8 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Card, CardHeader, CardBody } from "reactstrap";
 import { Form, Button, FormGroup, Label, Col, Input, Row } from "reactstrap";
+import { loginUser } from "../services/User-Service";
+import { toast } from "react-toastify";
 export default function Login() {
+  const [loginDetail, setLoginDetail] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleChange = (e, field) => {
+    let actualValue = e.target.value;
+    setLoginDetail({
+      ...loginDetail,
+      [field]: actualValue,
+    });
+  };
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    console.log(loginDetail);
+
+    // submit data to generate Token:
+    loginUser(loginDetail)
+      .then((jwtTokenData) => {
+        console.log(jwtTokenData);
+        console.log("token genetared succesfully");
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("daya kux garbad hai");
+        toast.success(error.response.data.message);
+      });
+  };
   return (
     <>
       <div className="container">
@@ -14,7 +44,7 @@ export default function Login() {
                 <hr />
               </CardHeader>
               <CardBody>
-                <Form>
+                <Form onSubmit={handleFormSubmit}>
                   <FormGroup row>
                     <Label for="exampleEmail" sm={2}>
                       Email
@@ -25,6 +55,8 @@ export default function Login() {
                         name="email"
                         placeholder="enter  ur email"
                         type="email"
+                        value={loginDetail.username}
+                        onChange={(e) => handleChange(e, "username")}
                       />
                     </Col>
                   </FormGroup>
@@ -38,6 +70,8 @@ export default function Login() {
                         name="password"
                         placeholder="password"
                         type="password"
+                        value={loginDetail.password}
+                        onChange={(e) => handleChange(e, "password")}
                       />
                     </Col>
                   </FormGroup>
