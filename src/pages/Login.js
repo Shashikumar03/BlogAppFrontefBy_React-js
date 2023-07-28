@@ -4,6 +4,7 @@ import { Card, CardHeader, CardBody } from "reactstrap";
 import { Form, Button, FormGroup, Label, Col, Input, Row } from "reactstrap";
 import { loginUser } from "../services/User-Service";
 import { toast } from "react-toastify";
+import { doLogin, doLogout, isLogged, getLoginUserDetail } from "../auth";
 export default function Login() {
   const [loginDetail, setLoginDetail] = useState({
     username: "",
@@ -23,9 +24,14 @@ export default function Login() {
 
     // submit data to generate Token:
     loginUser(loginDetail)
-      .then((jwtTokenData) => {
-        console.log(jwtTokenData);
+      .then((data) => {
+        console.log(data); // isme Token v aayega aur info v sath layega
         console.log("token genetared succesfully");
+        doLogin(data, () => {
+          console.log("login detail save to local strorage");
+
+          //redirect to login userDashBoard;
+        });
       })
       .catch((error) => {
         console.log(error);
