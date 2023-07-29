@@ -6,7 +6,7 @@ export default function Base() {
     <>
       <div className="container">
         <CustomNavbar />
-
+        
         <h1>This is footer</h1>
       </div>
     </>

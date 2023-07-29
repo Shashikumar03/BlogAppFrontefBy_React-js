@@ -4,12 +4,14 @@ import { Card, CardHeader, CardBody } from "reactstrap";
 import { Form, Button, FormGroup, Label, Col, Input, Row } from "reactstrap";
 import { loginUser } from "../services/User-Service";
 import { toast } from "react-toastify";
-import { doLogin, doLogout, isLogged, getLoginUserDetail } from "../auth";
+import { doLogin } from "../auth";
+import { useNavigate } from "react-router-dom";
 export default function Login() {
   const [loginDetail, setLoginDetail] = useState({
     username: "",
     password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e, field) => {
     let actualValue = e.target.value;
@@ -18,27 +20,25 @@ export default function Login() {
       [field]: actualValue,
     });
   };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(loginDetail);
 
     // submit data to generate Token:
     loginUser(loginDetail)
       .then((data) => {
-        console.log(data); // isme Token v aayega aur info v sath layega
-        console.log("token genetared succesfully");
         doLogin(data, () => {
-          console.log("login detail save to local strorage");
-
           //redirect to login userDashBoard;
+          navigate("/user/dashboard");
+          toast.success("user logged in succesfully");
         });
       })
       .catch((error) => {
-        console.log(error);
-        console.log("daya kux garbad hai");
-        toast.success(error.response.data.message);
+        toast.error(error.response.data.message);
       });
   };
+
+  //jsx
   return (
     <>
       <div className="container">

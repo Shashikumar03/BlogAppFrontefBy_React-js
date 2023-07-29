@@ -15,11 +15,12 @@ export const doLogin = (data, next) => {
 
 export const doLogout = (next) => {
   localStorage.removeItem("data");
+
   next(); // call back function hai;
 };
 
 export const getLoginUserDetail = () => {
-  if (isLogged) {
+  if (isLogged()) {
     return JSON.parse(localStorage.getItem("data")).user;
   } else {
     return false;
