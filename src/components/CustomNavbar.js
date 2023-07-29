@@ -41,11 +41,11 @@ export default function CustomNavbar() {
   const toggle = () => setIsOpen(!isOpen);
   return (
     <div>
-      <Navbar className="fixed-top px-5" color="light" light expand="md">
+      <Navbar className="fixed-top px-5 " color="white" light expand="md">
         <NavbarBrand>My blogs</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="ml-auto" navbar>
+          <Nav className="ml-auto " navbar>
             <NavItem>
               <NavLink tag={Link} to="/">
                 Home
@@ -81,10 +81,18 @@ export default function CustomNavbar() {
           <Nav className="ms-auto px-5 " navbar>
             {login && (
               <>
-                <NavItem>
-                  <NavLink tag={Link}>{user.email}</NavLink>
+                <NavItem className="hover">
+                  <NavLink tag={Link} to={"/user/profile-info"}>
+                    Profile Info
+                  </NavLink>
                 </NavItem>
-                <NavItem>
+
+                <NavItem className="hover">
+                  <NavLink tag={Link} to={"/user/dashboard"}>
+                    {user.email}
+                  </NavLink>
+                </NavItem>
+                <NavItem className="hover">
                   <NavLink tag={Link} onClick={logout}>
                     Logout
                   </NavLink>
