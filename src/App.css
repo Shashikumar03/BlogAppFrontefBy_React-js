@@ -37,6 +37,9 @@
     transform: rotate(360deg);
   }
 }
+.postCard{
+  background-color: red;
+}
 .button1{
    
   display: flex;
