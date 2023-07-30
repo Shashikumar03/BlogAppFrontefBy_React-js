@@ -18,6 +18,7 @@ import JoditEditor from "jodit-react";
 import { useRef } from "react";
 import { createPost } from "../services/Post-service";
 import { getLoginUserDetail } from "../auth";
+import { toast } from "react-toastify";
 
 export default function AddPost() {
   const [categories, setCatogories] = useState([]);
@@ -60,30 +61,36 @@ export default function AddPost() {
     event.preventDefault();
 
     if (post.title.trim() === "") {
-      alert("post is requires");
+      toast.warn("post is requires");
       return;
     }
     if (post.content.trim() === "") {
-      alert("post content is requires");
+      toast.warn("post content is requires");
       return;
     }
-    if (post.categoryId === 0 || post.categoryId === -1) {
-      alert("plz select the category");
+    if (post.categoryId === "") {
+      toast.warn("plz select the category");
       return;
     }
     post["userId"] = user.id;
-    console.log(post.userId);
+    // console.log(post.userId);
     console.log(post.categoryId);
 
     /// submit the form on the server
 
     createPost(post)
       .then((data) => {
-        alert("post create succesfully");
-        console.log(post);
+        // alert("post create succesfully");
+        toast.success("post create successfully");
+        setPost({
+          title: "",
+          content: "",
+          categoryId: "",
+        });
       })
       .catch((err) => {
-        alert("post doest not creates");
+        // alert("post doest not creates");
+        toast.error("post not creat");
         console.log(err);
       });
   };
