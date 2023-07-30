@@ -21,8 +21,16 @@ export const doLogout = (next) => {
 
 export const getLoginUserDetail = () => {
   if (isLogged()) {
+    
     return JSON.parse(localStorage.getItem("data")).user;
   } else {
-    return false;
+    return undefined;
+  }
+};
+export const getToken = () => {
+  if (isLogged) {
+    return JSON.parse(localStorage.getItem("data")).token;
+  } else {
+    return null;
   }
 };

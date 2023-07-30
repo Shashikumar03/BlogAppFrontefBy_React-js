@@ -34,6 +34,7 @@ export default function Login() {
         });
       })
       .catch((error) => {
+        debugger;
         toast.error(error.response.data.message);
       });
   };
