@@ -13,12 +13,17 @@ import { ToastContainer } from "react-toastify";
 import UserDashboard from "./pages/user-routes/UserDashboard";
 import PrivateRoutes from "./components/PrivateRoutes";
 import ProfileInfo from "./pages/user-routes/ProfileInfo";
+import PostPage from "./pages/PostPage";
+// import LoadingBar from "react-top-loading-bar";
+//import { useState } from "react";
 
 //import CustomNavbar from "./components/CustomNavbar";
 //import Base from "./components/Base";
 //import CustomNavbar from "./components/CustomNavbar";
 
 function App() {
+  // const [progress, setProgress] = useState(0);
+
   return (
     <>
       <Router>
@@ -33,13 +38,16 @@ function App() {
           draggable
           pauseOnHover
         />
+        {/* <LoadingBar height={3} color="#f11946" progress={progress} /> */}
+
         <Base />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route exact path="/login" element={<Login />} />
           <Route path="/services" element={<Services />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/about" element={<About />} />
+          <Route path="/post/:postId" element={<PostPage />} />
 
           <Route path="/user" element={<PrivateRoutes />}>
             <Route path="dashboard" element={<UserDashboard />} />

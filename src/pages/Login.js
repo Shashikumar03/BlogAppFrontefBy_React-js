@@ -25,11 +25,16 @@ export default function Login() {
     event.preventDefault();
 
     // submit data to generate Token:
+
     loginUser(loginDetail)
       .then((data) => {
+        
+
         doLogin(data, () => {
           //redirect to login userDashBoard;
           navigate("/user/dashboard");
+          // props.setProgress(100);
+
           toast.success("user logged in succesfully");
         });
       })
