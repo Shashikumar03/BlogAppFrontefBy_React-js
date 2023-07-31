@@ -10,10 +10,11 @@ import {
   Input,
   Button,
 } from "reactstrap";
-import CustomNavbar from "../components/CustomNavbar";
+// import CustomNavbar from "../components/CustomNavbar";
 import { getPostById } from "../services/Post-service";
 import { toast } from "react-toastify";
 import { createComment } from "../services/Comment-Service";
+import { isLogged } from "../auth";
 
 export default function PostPage() {
   const { postId } = useParams();
@@ -24,6 +25,7 @@ export default function PostPage() {
   console.log(postId);
 
   useEffect(() => {
+    // eslint-disable-next-line
     getPostById(postId)
       .then((data) => {
         console.log(data);
@@ -41,6 +43,10 @@ export default function PostPage() {
     return new Date(number).toDateString();
   };
   const submitComment = () => {
+    if (!isLogged()) {
+      toast.warning("login first");
+      return;
+    }
     createComment(comment, postId)
       .then((data) => {
         console.log(data.content);

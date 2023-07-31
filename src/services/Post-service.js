@@ -2,7 +2,7 @@ import axios from "axios";
 import { privateAxios } from "./Helper";
 
 export const createPost = async (postData) => {
-  console.log(postData);
+  
 
   return await privateAxios
     .post(

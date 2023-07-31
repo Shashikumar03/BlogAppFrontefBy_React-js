@@ -21,7 +21,7 @@ function NewFeed(props) {
     if (pageNumber > allPosts.pageNumber && allPosts.lastPage) {
       return;
     }
-    if (pageNumber < allPosts.pageNumber && allPosts.pageNumber == 0) {
+    if (pageNumber < allPosts.pageNumber && allPosts.pageNumber === 0) {
       return;
     }
     props.setProgress(10);
@@ -50,7 +50,10 @@ function NewFeed(props) {
   useEffect(
     (event) => {
       // event.preventDefault();
+      // eslint-disable-next-line
+
       changePage(currentPage);
+      // eslint-disable-next-line
     },
     [currentPage]
   );

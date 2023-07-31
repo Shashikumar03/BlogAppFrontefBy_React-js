@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Card, CardBody, CardHeader, CardText } from "reactstrap";
+import { Card, CardBody, CardHeader, CardText } from "reactstrap";
 
 function Post({ post = { title: "title", content: "content" } }) {
   console.log(post);
