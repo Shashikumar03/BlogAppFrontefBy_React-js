@@ -14,6 +14,7 @@ import UserDashboard from "./pages/user-routes/UserDashboard";
 import PrivateRoutes from "./components/PrivateRoutes";
 import ProfileInfo from "./pages/user-routes/ProfileInfo";
 import PostPage from "./pages/PostPage";
+import Categories from "./pages/Categories";
 // import LoadingBar from "react-top-loading-bar";
 //import { useState } from "react";
 
@@ -48,6 +49,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/about" element={<About />} />
           <Route path="/post/:postId" element={<PostPage />} />
+          <Route path="/categories/:categoryId" element={<Categories />} />
 
           <Route path="/user" element={<PrivateRoutes />}>
             <Route path="dashboard" element={<UserDashboard />} />

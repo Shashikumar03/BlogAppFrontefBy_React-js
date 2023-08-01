@@ -69,7 +69,6 @@ function NewFeed(props) {
           <Col
             md={{
               size: 10,
-              offset: 1,
             }}
           >
             <h1>{allPosts?.totalElements}</h1>

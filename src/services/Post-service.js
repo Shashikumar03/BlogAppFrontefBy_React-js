@@ -2,8 +2,6 @@ import axios from "axios";
 import { privateAxios } from "./Helper";
 
 export const createPost = async (postData) => {
-  
-
   return await privateAxios
     .post(
       `/user/${postData.userId}/category/${postData.categoryId}/posts`,
@@ -26,6 +24,14 @@ export const getPostById = async (postId) => {
   );
   console.log(
     "------------------------------------------------------------------"
+  );
+  return response.data;
+};
+// get post by category id
+
+export const getPostByCategoryId = async (categoryId) => {
+  const response = await axios.get(
+    `http://localhost:9292/api/v1/category/${categoryId}/posts`
   );
   return response.data;
 };

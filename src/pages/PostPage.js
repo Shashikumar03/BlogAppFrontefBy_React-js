@@ -90,6 +90,8 @@ export default function PostPage() {
                   <CardText>
                     <h5>{post.content}</h5>
                   </CardText>
+                  <hr />
+                  <CardText>category:-- {post.category.categoryTitle}</CardText>
                 </CardBody>
               </Card>
             )}
