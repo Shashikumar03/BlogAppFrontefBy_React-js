@@ -92,6 +92,11 @@ export default function CustomNavbar() {
                     {user.email}
                   </NavLink>
                 </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} to={"/user/add-category"}>
+                    add Category
+                  </NavLink>
+                </NavItem>
                 <NavItem className="hover">
                   <NavLink tag={Link} onClick={logout}>
                     Logout

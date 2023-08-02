@@ -78,7 +78,7 @@ export default function Signup() {
                   <Col sm={10}>
                     <Input
                       id="exampleName"
-                      name="name"
+                      name="text"
                       placeholder="enter ur name"
                       type="name"
                       onChange={(e) => handleChange(e, "name")}

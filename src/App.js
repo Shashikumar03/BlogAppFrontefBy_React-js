@@ -15,6 +15,7 @@ import PrivateRoutes from "./components/PrivateRoutes";
 import ProfileInfo from "./pages/user-routes/ProfileInfo";
 import PostPage from "./pages/PostPage";
 import Categories from "./pages/Categories";
+import AddCategory from "./pages/AddCategory";
 // import LoadingBar from "react-top-loading-bar";
 //import { useState } from "react";
 
@@ -30,7 +31,7 @@ function App() {
       <Router>
         <ToastContainer
           position="bottom-center"
-          autoClose={1000}
+          autoClose={3000}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick
@@ -54,6 +55,7 @@ function App() {
           <Route path="/user" element={<PrivateRoutes />}>
             <Route path="dashboard" element={<UserDashboard />} />
             <Route path="profile-info" element={<ProfileInfo />} />
+            <Route path="add-category" element={<AddCategory />} />
           </Route>
         </Routes>
       </Router>
