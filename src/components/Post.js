@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Card, CardBody, CardHeader, CardText } from "reactstrap";
+import { Button, Card, CardBody, CardHeader, CardText } from "reactstrap";
+import { getLoginUserDetail, isLogged } from "../auth";
 
-function Post({ post = { title: "title", content: "content" } }) {
-  console.log(post);
+function Post({
+  post = { id: -1, title: "title", content: "content" },
+  deletePost,
+}) {
+  const [user, setUser] = useState({});
+  const [loggin, setLogin] = useState(null);
+  useEffect(() => {
+    setUser(getLoginUserDetail());
+    setLogin(isLogged());
+  }, []);
   return (
     <>
       <Card className="mt-3">
@@ -20,6 +29,15 @@ function Post({ post = { title: "title", content: "content" } }) {
           <Link className=" btn bg-primary" to={"/post/" + post.postId}>
             read more
           </Link>
+          {loggin && user && user.id == post.user.id && (
+            <Button
+              className="ms-2"
+              color="danger"
+              onClick={(event) => deletePost(post)}
+            >
+              delete
+            </Button>
+          )}
         </div>
       </Card>
     </>

@@ -35,3 +35,15 @@ export const getPostByCategoryId = async (categoryId) => {
   );
   return response.data;
 };
+export const getPostByUser = async (userId) => {
+  return await privateAxios
+    .get(`/user/${userId}/posts`)
+    .then((response) => response.data);
+};
+
+export const deletePostService = async (postId) => {
+  console.log(postId + " yahi id wala delete hoga shashi smjha");
+  return await privateAxios
+    .delete(`/posts/${postId}`)
+    .then((response) => response.data);
+};

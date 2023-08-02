@@ -83,17 +83,21 @@ export default function CustomNavbar() {
               <>
                 <NavItem className="hover">
                   <NavLink tag={Link} to={"/user/profile-info"}>
-                    Profile Info
+                    {user.email}
                   </NavLink>
                 </NavItem>
 
                 <NavItem className="hover">
                   <NavLink tag={Link} to={"/user/dashboard"}>
-                    {user.email}
+                    create post
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} to={"/user/add-category"}>
+                  <NavLink
+                    className="hover"
+                    tag={Link}
+                    to={"/user/add-category"}
+                  >
                     add Category
                   </NavLink>
                 </NavItem>
