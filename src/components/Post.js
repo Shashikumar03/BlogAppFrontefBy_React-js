@@ -12,6 +12,7 @@ function Post({
   useEffect(() => {
     setUser(getLoginUserDetail());
     setLogin(isLogged());
+    console.log(post + "yahi post hai categori dekh lo");
   }, []);
   return (
     <>
@@ -29,13 +30,23 @@ function Post({
           <Link className=" btn bg-primary" to={"/post/" + post.postId}>
             read more
           </Link>
-          {loggin && user && user.id == post.user.id && (
+          {loggin && user && user.id === post.user.id && (
             <Button
               className="ms-2"
               color="danger"
               onClick={(event) => deletePost(post)}
             >
               delete
+            </Button>
+          )}
+          {loggin && user && user.id === post.user.id && (
+            <Button
+              tag={Link}
+              to={`/user/update-post/${post.postId}`}
+              className="ms-2"
+              color="warning"
+            >
+              update
             </Button>
           )}
         </div>

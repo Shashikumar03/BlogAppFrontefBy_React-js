@@ -16,6 +16,7 @@ import ProfileInfo from "./pages/user-routes/ProfileInfo";
 import PostPage from "./pages/PostPage";
 import Categories from "./pages/Categories";
 import AddCategory from "./pages/AddCategory";
+import UpdatePost from "./pages/UpdatePost";
 // import LoadingBar from "react-top-loading-bar";
 //import { useState } from "react";
 
@@ -56,6 +57,7 @@ function App() {
             <Route path="dashboard" element={<UserDashboard />} />
             <Route path="profile-info" element={<ProfileInfo />} />
             <Route path="add-category" element={<AddCategory />} />
+            <Route path="update-post/:postId" element={<UpdatePost />} />
           </Route>
         </Routes>
       </Router>

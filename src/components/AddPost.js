@@ -19,12 +19,14 @@ import { useRef } from "react";
 import { createPost } from "../services/Post-service";
 import { getLoginUserDetail } from "../auth";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function AddPost() {
   const [categories, setCatogories] = useState([]);
   const editor = useRef(null);
   //const [content, setContent] = useState("");
   const [user, setUser] = useState(undefined);
+  const navigate = useNavigate();
 
   const [post, setPost] = useState({
     title: "",
@@ -87,6 +89,7 @@ export default function AddPost() {
           content: "",
           categoryId: "",
         });
+        navigate("/");
       })
       .catch((err) => {
         // alert("post doest not creates");
@@ -139,8 +142,8 @@ export default function AddPost() {
                     ref={editor}
                     value={post.content}
                     required
-                    // onChange={(newContent) => setContent(newContent)}
-                    onChange={contentFieldChange}
+                    onChange={(newContent) => contentFieldChange(newContent)}
+                    //onChange={contentFieldChange}
                   />
                 </Col>
               </FormGroup>

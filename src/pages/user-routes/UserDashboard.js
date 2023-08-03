@@ -33,6 +33,7 @@ function UserDashboard() {
         console.log(error);
         toast.error("error in loading user posts");
       });
+    
   }
   const deletePost = (post) => {
     const id = post.postId;
@@ -56,7 +57,7 @@ function UserDashboard() {
       <div className="container">
         <AddPost />
         <h3 className="my-5 text-center mx-2">
-          total post by {user.name}={posts.length}
+          {user.name} see your tatal post={posts.length}
         </h3>
         {posts.map((post, index) => {
           return <Post post={post} key={index} deletePost={deletePost} />;

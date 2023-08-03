@@ -13,7 +13,7 @@ export const createPost = async (postData) => {
 
 export const getAllPost = async (pageNumber, pageSize) => {
   const response = await axios.get(
-    `http://localhost:9292/api/v1/posts?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=addedDate&sortDir=asc`
+    `http://localhost:9292/api/v1/posts?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=addedDate&sortDir=desc`
   );
   return response.data;
 };
@@ -45,5 +45,11 @@ export const deletePostService = async (postId) => {
   console.log(postId + " yahi id wala delete hoga shashi smjha");
   return await privateAxios
     .delete(`/posts/${postId}`)
+    .then((response) => response.data);
+};
+
+export const updatePostForm = async (post, postId) => {
+  return await privateAxios
+    .put(`http://localhost:9292/api/v1/posts/${postId}`, post)
     .then((response) => response.data);
 };
