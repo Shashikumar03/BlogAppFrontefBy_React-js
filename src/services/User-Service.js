@@ -3,16 +3,18 @@ import axios from "axios";
 
 export const signUp = async (user) => {
   const response = await axios.post(
-    "http://localhost:9292/api/v1/auth/register",
+    "https://blog-shashi-production.up.railway.app/api/v1/auth/register",
     user
   );
   return response.data;
 };
 export const loginUser = async (loginDetail) => {
+  console.log("login details", loginDetail)
   const response = await axios.post(
-    "http://localhost:9292/api/v1/auth/login",
+    "https://blog-shashi-production.up.railway.app/api/v1/auth/login",
     loginDetail
   );
+  console.log(" log response :", response.data)
 
   return response.data;
 };

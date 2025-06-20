@@ -1,5 +1,6 @@
 import React from "react";
 import CustomNavbar from "./CustomNavbar";
+import Footer from "./Footer";
 
 export default function Base() {
   return (
@@ -7,7 +8,7 @@ export default function Base() {
       <div className="container">
         <CustomNavbar />
         
-        <h1>This is footer</h1>
+        {/* <Footer/> */}
       </div>
     </>
   );

@@ -17,6 +17,8 @@ import PostPage from "./pages/PostPage";
 import Categories from "./pages/Categories";
 import AddCategory from "./pages/AddCategory";
 import UpdatePost from "./pages/UpdatePost";
+import Footer from "./components/Footer";
+import TermsAndConditions from "./pages/TermsAndConditions";
 // import LoadingBar from "react-top-loading-bar";
 //import { useState } from "react";
 
@@ -52,6 +54,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/post/:postId" element={<PostPage />} />
           <Route path="/categories/:categoryId" element={<Categories />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          {/* <TermsAndConditions */}
 
           <Route path="/user" element={<PrivateRoutes />}>
             <Route path="dashboard" element={<UserDashboard />} />
@@ -60,6 +64,7 @@ function App() {
             <Route path="update-post/:postId" element={<UpdatePost />} />
           </Route>
         </Routes>
+       <Footer/>
       </Router>
     </>
   );

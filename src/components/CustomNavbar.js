@@ -63,7 +63,7 @@ export default function CustomNavbar() {
               </NavLink>
             </NavItem>
 
-            <UncontrolledDropdown nav inNavbar>
+            {/* <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
                 More
               </DropdownToggle>
@@ -75,7 +75,7 @@ export default function CustomNavbar() {
                 <DropdownItem divider />
                 <DropdownItem>Reset</DropdownItem>
               </DropdownMenu>
-            </UncontrolledDropdown>
+            </UncontrolledDropdown> */}
           </Nav>
 
           <Nav className="ms-auto px-5 " navbar>

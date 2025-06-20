@@ -13,14 +13,14 @@ export const createPost = async (postData) => {
 
 export const getAllPost = async (pageNumber, pageSize) => {
   const response = await axios.get(
-    `http://localhost:9292/api/v1/posts?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=addedDate&sortDir=desc`
+    `https://blog-shashi-production.up.railway.app/api/v1/posts?pageNumber=${pageNumber}&pageSize=${pageSize}&sortBy=addedDate&sortDir=desc`
   );
   return response.data;
 };
 // load post by id
 export const getPostById = async (postId) => {
   const response = await axios.get(
-    `http://localhost:9292/api/v1/posts/${postId}`
+    `https://blog-shashi-production.up.railway.app/api/v1/posts/${postId}`
   );
   console.log(
     "------------------------------------------------------------------"
@@ -31,7 +31,7 @@ export const getPostById = async (postId) => {
 
 export const getPostByCategoryId = async (categoryId) => {
   const response = await axios.get(
-    `http://localhost:9292/api/v1/category/${categoryId}/posts`
+    `https://blog-shashi-production.up.railway.app/api/v1/category/${categoryId}/posts`
   );
   return response.data;
 };
@@ -50,6 +50,6 @@ export const deletePostService = async (postId) => {
 
 export const updatePostForm = async (post, postId) => {
   return await privateAxios
-    .put(`http://localhost:9292/api/v1/posts/${postId}`, post)
+    .put(`https://blog-shashi-production.up.railway.app/api/v1/posts/${postId}`, post)
     .then((response) => response.data);
 };

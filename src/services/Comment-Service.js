@@ -3,7 +3,7 @@ import { privateAxios } from "./Helper";
 
 export const createComment = async (comment, postId) => {
   return await privateAxios
-    .post(`http://localhost:9292/api/v1/post/${postId}/comments`, comment)
+    .post(`https://blog-shashi-production.up.railway.app/api/v1/post/${postId}/comments`, comment)
     .then((response) => response.data);
   //return response.data;
 };
